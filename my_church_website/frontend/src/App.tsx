@@ -224,7 +224,7 @@ export default function ChurchWebsite() {
             className="flex items-center gap-2 font-semibold text-xl"
           >
             <Church className="w-6 h-6" />
-            <span>Your Church</span>
+            <span>남부중앙교회</span>
           </button>
 
           <nav className="hidden md:flex gap-6 text-sm font-medium">
@@ -293,7 +293,7 @@ export default function ChurchWebsite() {
             transition={{ duration: 0.6 }}
             className="text-4xl md:text-6xl font-extrabold tracking-tight"
           >
-            Welcome Home.
+            새로운 시작.
           </motion.h1>
           <motion.p
             initial={{ opacity: 0, y: 20 }}
@@ -301,7 +301,7 @@ export default function ChurchWebsite() {
             transition={{ duration: 0.7, delay: 0.05 }}
             className="mt-5 max-w-2xl text-lg md:text-xl text-slate-700"
           >
-            A community following Jesus, loving neighbors, and seeking the peace of our city.
+            예수님을 따르는 공동체,
           </motion.p>
           <div className="mt-8 flex flex-wrap gap-3">
             <a
@@ -312,7 +312,7 @@ export default function ChurchWebsite() {
               }}
               className="inline-flex items-center gap-2 rounded-2xl px-5 py-3 bg-slate-900 text-white hover:bg-slate-800 shadow"
             >
-              <PlayCircle className="w-5 h-5" /> Latest Sermon
+              <PlayCircle className="w-5 h-5" /> 최근 설교
             </a>
             {nextEvent && (
               <a
@@ -334,8 +334,8 @@ export default function ChurchWebsite() {
       <section id="sermons" className="max-w-6xl mx-auto px-4 py-16">
         <SectionTitle
           icon={<PlayCircle className="w-7 h-7" />}
-          title="Sermons"
-          subtitle="Watch or listen to recent messages."
+          title="설교"
+          subtitle="최근 메시지를 시청하거나 들어보세요."
         />
         <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
           {sermons.map((s) => (
@@ -365,7 +365,7 @@ export default function ChurchWebsite() {
                       href={s.videoUrl}
                       className="px-3 py-2 rounded-xl text-sm bg-slate-900 text-white"
                     >
-                      Watch
+                      시청하기
                     </a>
                   )}
                   {s.audioUrl && (
@@ -373,7 +373,7 @@ export default function ChurchWebsite() {
                       href={s.audioUrl}
                       className="px-3 py-2 rounded-xl text-sm border"
                     >
-                      Listen
+                      듣기
                     </a>
                   )}
                 </div>
@@ -387,8 +387,8 @@ export default function ChurchWebsite() {
       <section id="events" className="max-w-6xl mx-auto px-4 py-16 bg-gradient-to-b from-white to-slate-50 rounded-3xl">
         <SectionTitle
           icon={<CalendarDays className="w-7 h-7" />}
-          title="Events"
-          subtitle="Gatherings and upcoming activities."
+          title="일정"
+          subtitle="모임 및 다가오는 활동"
         />
         <div className="grid md:grid-cols-2 gap-6">
           {events.map((ev) => (
@@ -410,7 +410,7 @@ export default function ChurchWebsite() {
               <div className="mt-4 flex gap-2">
                 {ev.registrationUrl && (
                   <a href={ev.registrationUrl} className="px-3 py-2 rounded-xl text-sm bg-slate-900 text-white">
-                    Register
+                    등록하기
                   </a>
                 )}
               </div>
@@ -423,8 +423,8 @@ export default function ChurchWebsite() {
       <section id="ministries" className="max-w-6xl mx-auto px-4 py-16">
         <SectionTitle
           icon={<HeartHandshake className="w-7 h-7" />}
-          title="Ministries"
-          subtitle="Find your place to serve and grow."
+          title="사역"
+          subtitle="봉사하고 성장할 수 있는 곳을 찾아보세요."
         />
         <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-6">
           {ministries.map((m) => (
@@ -465,20 +465,20 @@ export default function ChurchWebsite() {
 
       {/* VISIT */}
       <section id="visit" className="max-w-6xl mx-auto px-4 py-16">
-        <SectionTitle icon={<MapPin className="w-7 h-7" />} title="Visit Us" subtitle="We'd love to meet you!" />
+        <SectionTitle icon={<MapPin className="w-7 h-7" />} title="찾아오시는 길" subtitle="환영합니다!" />
         <div className="grid lg:grid-cols-2 gap-6 items-stretch">
           <div className="rounded-2xl border bg-white p-6 shadow-sm">
-            <h4 className="font-semibold text-lg">Service Times</h4>
+            <h4 className="font-semibold text-lg">예배시간</h4>
             <ul className="mt-3 text-sm text-slate-700 space-y-1">
               <li>Sunday Worship: 10:30 AM</li>
               <li>Wednesday Prayer: 7:30 PM</li>
               <li>Youth: Friday 7:00 PM</li>
             </ul>
-            <h4 className="font-semibold text-lg mt-6">Address</h4>
+            <h4 className="font-semibold text-lg mt-6">주소</h4>
             <p className="text-sm text-slate-700 mt-1">123 Hope St, Seoul</p>
             <div className="mt-4 flex flex-wrap gap-3 text-sm">
               <a href="tel:+821012345678" className="inline-flex items-center gap-2 px-3 py-2 rounded-xl border">
-                <Phone className="w-4 h-4" /> +82 10-1234-5678
+                <Phone className="w-4 h-4" /> +82 10-3340-2001
               </a>
               <a href="mailto:info@yourchurch.org" className="inline-flex items-center gap-2 px-3 py-2 rounded-xl border">
                 <Mail className="w-4 h-4" /> info@yourchurch.org
@@ -501,20 +501,20 @@ export default function ChurchWebsite() {
 
       {/* CONTACT */}
       <section id="contact" className="max-w-6xl mx-auto px-4 py-16">
-        <SectionTitle title="Contact Us" subtitle="Questions or prayer requests? Send us a note." />
+        <SectionTitle title="Contact Us" subtitle="질문이나 기도 요청이 있으신가요? 쪽지를 보내주세요." />
         <form onSubmit={onContactSubmit} className="max-w-2xl mx-auto grid gap-4">
           <div className="grid md:grid-cols-2 gap-4">
             <div>
-              <label className="text-sm font-medium">Name</label>
+              <label className="text-sm font-medium">이름</label>
               <input name="name" required className="mt-1 w-full rounded-xl border px-3 py-2" />
             </div>
             <div>
-              <label className="text-sm font-medium">Email</label>
+              <label className="text-sm font-medium">이메일</label>
               <input name="email" type="email" required className="mt-1 w-full rounded-xl border px-3 py-2" />
             </div>
           </div>
           <div>
-            <label className="text-sm font-medium">Message</label>
+            <label className="text-sm font-medium">메시지</label>
             <textarea name="message" required rows={5} className="mt-1 w-full rounded-xl border px-3 py-2" />
           </div>
           <div className="flex items-center gap-3">
@@ -522,7 +522,7 @@ export default function ChurchWebsite() {
               disabled={sending}
               className="inline-flex items-center gap-2 rounded-2xl px-5 py-3 bg-slate-900 text-white hover:bg-slate-800 disabled:opacity-60"
             >
-              <Send className="w-4 h-4" /> {sending ? "Sending..." : "Send"}
+              <Send className="w-4 h-4" /> {sending ? "Sending..." : "보내기"}
             </button>
             {sent === "ok" && <span className="text-sm text-green-600">Thanks! We'll get back to you.</span>}
             {sent === "err" && <span className="text-sm text-red-600">Something went wrong. Please try again.</span>}
@@ -534,7 +534,7 @@ export default function ChurchWebsite() {
       <footer className="border-t">
         <div className="max-w-6xl mx-auto px-4 py-10 text-sm text-slate-600 flex flex-col md:flex-row items-center justify-between gap-3">
           <div className="flex items-center gap-2">
-            <Church className="w-4 h-4" /> Your Church · © {new Date().getFullYear()}
+            <Church className="w-4 h-4" /> 남부중앙교회 · © {new Date().getFullYear()}
           </div>
           <div className="flex items-center gap-4">
             <a className="hover:underline" href="#visit" onClick={(e) => { e.preventDefault(); scrollToId("visit"); }}>Plan a Visit</a>
