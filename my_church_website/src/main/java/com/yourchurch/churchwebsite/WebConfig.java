@@ -1,4 +1,3 @@
-// src/main/java/com/yourchurch/churchwebsite/WebConfig.java
 package com.yourchurch.churchwebsite;
 
 import org.springframework.context.annotation.Configuration;
@@ -10,8 +9,10 @@ public class WebConfig implements WebMvcConfigurer {
 
     @Override
     public void addCorsMappings(CorsRegistry registry) {
-        registry.addMapping("/api/**")
-                .allowedOrigins("http://localhost:3000") // React 개발 서버 주소
-                .allowedMethods("GET", "POST", "PUT", "DELETE", "OPTIONS");
+        registry.addMapping("/**")
+                .allowedOrigins("http://localhost:3000") // 프론트엔드 주소
+                .allowedMethods("GET", "POST", "PUT", "DELETE", "OPTIONS")
+                .allowedHeaders("*")
+                .allowCredentials(true);
     }
 }
