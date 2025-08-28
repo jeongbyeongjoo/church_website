@@ -3,6 +3,8 @@ package com.yourchurch.churchwebsite.controller;
 import com.yourchurch.churchwebsite.dto.EventItemDto;
 import com.yourchurch.churchwebsite.dto.MinistryDto;
 import com.yourchurch.churchwebsite.dto.SermonDto;
+import com.yourchurch.churchwebsite.service.EventItemService;
+import com.yourchurch.churchwebsite.service.MinistryService;
 import com.yourchurch.churchwebsite.service.SermonService;
 import lombok.RequiredArgsConstructor;
 import org.springframework.http.ResponseEntity;
@@ -17,29 +19,29 @@ import java.util.List;
 @RequiredArgsConstructor
 public class ChurchApiController {
 
+    // 3개의 Service를 모두 주입받습니다.
     private final SermonService sermonService;
+    private final EventItemService eventItemService;
+    private final MinistryService ministryService;
 
+    // --- 설교 API ---
     @GetMapping("/sermons")
     public ResponseEntity<List<SermonDto>> getAllSermons() {
-        List<SermonDto> sermons = sermonService.getAllSermons();
-        return ResponseEntity.ok(sermons);
+        return ResponseEntity.ok(sermonService.getAllSermons());
     }
 
-
+    // --- 행사 API ---
     @GetMapping("/events")
-    public List<EventItemDto> getEvents() {
-        return List.of(
-                new EventItemDto("e1", "Youth Gathering", "August 26", "7:00 PM", "Youth Chapel", "A night of worship and fellowship for all youth."),
-                new EventItemDto("e2", "Young Adult Service", "September 2", "8:00 PM", "Main Sanctuary", "A special service for young adults.")
-        );
+    public ResponseEntity<List<EventItemDto>> getAllEvents() {
+        // 임시 데이터 대신 실제 Service를 호출합니다.
+        return ResponseEntity.ok(eventItemService.getAllEventItems());
     }
 
+    // --- 사역 API ---
     @GetMapping("/ministries")
-    public List<MinistryDto> getMinistries() {
-        return List.of(
-                new MinistryDto("m1", "Youth Ministry", "Pastor Alex", "Equipping the next generation to be disciples of Christ.", "https://example.com/youth-ministry.jpg"),
-                new MinistryDto("m2", "Worship Team", "Jane Doe", "Leading the congregation in worship through music.", "https://example.com/worship-team.jpg")
-        );
+    public ResponseEntity<List<MinistryDto>> getAllMinistries() {
+        // 임시 데이터 대신 실제 Service를 호출합니다.
+        return ResponseEntity.ok(ministryService.getAllMinistries());
     }
 
     @PostMapping("/contact")
