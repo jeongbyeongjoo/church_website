@@ -33,24 +33,22 @@ public class EventItemService {
         return convertToDto(savedEventItem);
     }
 
-    // Entity -> DTO 변환 (EventItem에 맞게 수정)
     private EventItemDto convertToDto(EventItemEntity entity) {
         return new EventItemDto(
                 String.valueOf(entity.getId()),
-                entity.getName(),
+                entity.getName(), // DB 필드는 그대로 name
                 entity.getDate(),
-                entity.getTime(),
+                entity.getTime(), // DB 필드는 그대로 time
                 entity.getLocation(),
                 entity.getDescription()
         );
     }
 
-    // DTO -> Entity 변환 (EventItem에 맞게 수정)
     private EventItemEntity convertToEntity(EventItemDto dto) {
         return EventItemEntity.builder()
-                .name(dto.getName())
+                .name(dto.getTitle()) // DTO의 title을 Entity의 name으로
                 .date(dto.getDate())
-                .time(dto.getTime())
+                .time(dto.getStartTime()) // DTO의 startTime을 Entity의 time으로
                 .location(dto.getLocation())
                 .description(dto.getDescription())
                 .build();

@@ -33,23 +33,21 @@ public class MinistryService {
         return convertToDto(savedMinistry);
     }
 
-    // Entity -> DTO 변환 (Ministry에 맞게 수정)
     private MinistryDto convertToDto(MinistryEntity entity) {
         return new MinistryDto(
                 String.valueOf(entity.getId()),
                 entity.getName(),
                 entity.getLeader(),
-                entity.getDescription(),
+                entity.getDescription(), // DB 필드는 그대로 description
                 entity.getImageUrl()
         );
     }
 
-    // DTO -> Entity 변환 (Ministry에 맞게 수정)
     private MinistryEntity convertToEntity(MinistryDto dto) {
         return MinistryEntity.builder()
                 .name(dto.getName())
                 .leader(dto.getLeader())
-                .description(dto.getDescription())
+                .description(dto.getSummary()) // DTO의 summary를 Entity의 description으로
                 .imageUrl(dto.getImageUrl())
                 .build();
     }
