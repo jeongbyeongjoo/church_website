@@ -1,5 +1,6 @@
 package com.yourchurch.churchwebsite.controller;
 
+import com.yourchurch.churchwebsite.dto.ContactFormDto;
 import com.yourchurch.churchwebsite.dto.EventItemDto;
 import com.yourchurch.churchwebsite.dto.MinistryDto;
 import com.yourchurch.churchwebsite.dto.SermonDto;
@@ -8,10 +9,8 @@ import com.yourchurch.churchwebsite.service.MinistryService;
 import com.yourchurch.churchwebsite.service.SermonService;
 import lombok.RequiredArgsConstructor;
 import org.springframework.http.ResponseEntity;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
+
 import java.util.List;
 
 /**
@@ -85,17 +84,28 @@ public class ChurchApiController {
         return ResponseEntity.ok(ministries);
     }
 
-    // --- 연락처 폼 API (예시) ---
     /**
      * @PostMapping("/contact")
-     * HTTP POST 요청 중에서 "/api/contact" 경로로 들어오는 요청을 처리합니다.
-     * GET이 주로 데이터를 '조회'하는 용도라면, POST는 새로운 데이터를 '생성'하거나 '제출'할 때 사용됩니다.
+     * 연락처 폼 제출(POST 요청)을 처리하는 API 엔드포인트입니다.
+     *
+     * @RequestBody ContactFormDto contactFormDto
+     * - @RequestBody: 프론트엔드가 요청 본문(body)에 담아 보낸 JSON 데이터를
+     * - ContactFormDto: 우리가 만든 자바 객체로 자동으로 변환해서 넣어줘! 라는 의미의 마법 어노테이션입니다.
      */
     @PostMapping("/contact")
-    public String handleContactForm() {
-        // 실제로는 여기서 클라이언트가 보낸 연락처 폼 데이터를 받아서 처리해야 합니다.
-        // (예: @RequestBody 어노테이션으로 데이터를 받아 Service에 넘겨 이메일을 보내거나 DB에 저장)
-        // 지금은 간단히 성공했다는 문자열만 반환하도록 되어 있습니다.
-        return "Contact form submitted successfully!";
+    public ResponseEntity<String> handleContactForm(@RequestBody ContactFormDto contactFormDto) {
+        // 이제 contactFormDto 객체 안에 프론트엔드가 보낸 데이터가 예쁘게 담겨 있습니다.
+
+        // 데이터가 잘 도착했는지 백엔드 콘솔(터미널)에 출력해봅니다.
+        System.out.println("===== 새로운 문의 접수 =====");
+        System.out.println("이름: " + contactFormDto.getName());
+        System.out.println("이메일: " + contactFormDto.getEmail());
+        System.out.println("메시지: " + contactFormDto.getMessage());
+        System.out.println("==========================");
+
+        // 나중에는 여기에 이메일을 보내거나, DB에 문의 내용을 저장하는 로직을 추가할 수 있습니다.
+
+        // 프론트엔드에게 성공적으로 처리되었다는 응답(200 OK)과 메시지를 보냅니다.
+        return ResponseEntity.ok("Contact form submitted successfully!");
     }
 }
