@@ -2,13 +2,13 @@ package com.church.churchwebsite.Entitiy;
 
 import com.church.churchwebsite.dto.CommentDto;
 import jakarta.persistence.*;
-import lombok.AllArgsConstructor;
-import lombok.Data;
-import lombok.Getter;
+import lombok.*;
 
-@Data
 @Entity
 @AllArgsConstructor
+@NoArgsConstructor
+@Getter
+@ToString
 public class Comment {
     @Id // 대표키 지정
     @GeneratedValue(strategy= GenerationType.IDENTITY) // DB가 자동으로 1씩 증가

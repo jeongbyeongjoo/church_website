@@ -1,13 +1,13 @@
 package com.church.churchwebsite.Entitiy;
 
 import jakarta.persistence.*;
-import lombok.AllArgsConstructor;
-import lombok.Data;
-import lombok.Getter;
+import lombok.*;
 
-@Data
 @Entity
 @AllArgsConstructor
+@NoArgsConstructor
+@Getter
+@ToString
 public class Article {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
